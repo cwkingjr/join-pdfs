@@ -1,0 +1,2 @@
+[console_scripts]
+join-pdfs = join_pdfs.cli:main

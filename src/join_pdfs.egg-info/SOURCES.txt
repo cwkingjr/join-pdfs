@@ -1,0 +1,13 @@
+pyproject.toml
+src/join_pdfs/__init__.py
+src/join_pdfs/__main__.py
+src/join_pdfs/cli.py
+src/join_pdfs/models.py
+src/join_pdfs/processor.py
+src/join_pdfs.egg-info/PKG-INFO
+src/join_pdfs.egg-info/SOURCES.txt
+src/join_pdfs.egg-info/dependency_links.txt
+src/join_pdfs.egg-info/entry_points.txt
+src/join_pdfs.egg-info/requires.txt
+src/join_pdfs.egg-info/top_level.txt
+tests/test_processor.py

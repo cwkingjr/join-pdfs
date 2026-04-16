@@ -1,0 +1,30 @@
+[project]
+name = "join-pdfs"
+version = "0.1.0"
+description = "Consolidate PDF files by organization"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = ["pypdf>=5.0"]
+
+[project.scripts]
+join-pdfs = "join_pdfs.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.8",
+    "ty>=0.0",
+]
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
