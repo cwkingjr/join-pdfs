@@ -4,21 +4,36 @@ Consolidate PDF files by organization.
 
 ## Installation
 
+First, ensure you have UV installed. You can test by typing `uv <return>` in your terminal.
+
+Then install this tool using uv by running the below command in your terminal.
+
 ```bash
-uv tool install .
+uv tool install https://github.com/cwkingjr/join-pdfs.git
 ```
 
 ## Usage
+
+Within terminal:
 
 ```bash
 join-pdfs -i <input_folder> [-o <output_folder>]
 ```
 
-### Options
+### Arguments/Options
 
 - `-i, --input-folder` - Path to folder containing PDF files (required)
 - `-o, --output-folder` - Output folder path (default: `consolidated`)
 - `--version` - Show version number
+
+### Examples
+
+```bash
+# Using short argument names
+join-pdfs -i ~/Desktop/AAA/PDFS/ -o ~/Desktop/AAA/CONSOLIDATED/
+# Using long argument names
+join-pdfs --input-folder ~/Desktop/AAA/PDFS/ --output-folder ~/Desktop/AAA/CONSOLIDATED/
+```
 
 ## File Naming Convention
 
