@@ -9,6 +9,7 @@ __pycache__/
 
 pdfs/
 consolidated/
+output/
 
 .idea/
 .vscode/

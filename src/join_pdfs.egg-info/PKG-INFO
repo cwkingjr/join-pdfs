@@ -4,8 +4,103 @@ Version: 0.1.0
 Summary: Consolidate PDF files by organization
 Requires-Python: >=3.14
 Description-Content-Type: text/markdown
-Requires-Dist: pypdf>=5.0
+License-File: LICENSE
+Requires-Dist: pypdf[crypto]>=5.0
 Provides-Extra: dev
 Requires-Dist: pytest>=8.0; extra == "dev"
 Requires-Dist: ruff>=0.8; extra == "dev"
 Requires-Dist: ty>=0.0; extra == "dev"
+Dynamic: license-file
+
+# join-pdfs
+
+Consolidate PDF files by organization.
+
+## Installation
+
+First, ensure you have UV installed. You can test by typing `uv <return>` in your terminal.
+
+Then install this tool using uv by running the below command in your terminal.
+
+```bash
+uv tool install https://github.com/cwkingjr/join-pdfs.git
+```
+
+## Usage
+
+Within terminal:
+
+```bash
+join-pdfs -i <input_folder> [-o <output_folder>]
+```
+
+### Arguments/Options
+
+- `-i, --input-folder` - Path to folder containing PDF files (required)
+- `-o, --output-folder` - Output folder path (default: `consolidated`)
+- `--version` - Show version number
+
+### Examples
+
+```bash
+# Using short argument names
+join-pdfs -i ~/Desktop/AAA/PDFS/ -o ~/Desktop/AAA/CONSOLIDATED/
+# Using long argument names
+join-pdfs --input-folder ~/Desktop/AAA/PDFS/ --output-folder ~/Desktop/AAA/CONSOLIDATED/
+```
+
+## File Naming Convention
+
+Files must follow this naming format:
+
+```
+<integer> - <organization_name>.pdf
+```
+
+- Files with the same integer belong to the same organization
+- The file with the shortest filename is the primary file
+- Other files for that organization are merged into the primary file
+- The organization ID is retained in the output filename
+- Underscores are allowed in filenames but do not affect primary file selection
+
+### Examples
+
+**Input:**
+```
+pdfs/
+├── 10 - African Vegan on a Budget.pdf
+├── 10 - African Vegan on a Budget 990.pdf
+├── 10 - African Vegan on a Budget TP.pdf
+├── 17 - AEL Advocacy.pdf
+└── 17 - AEL Advocacy 990.pdf
+```
+
+**Output:**
+```
+consolidated/
+├── 10 - African Vegan on a Budget.pdf
+└── 17 - AEL Advocacy.pdf
+```
+
+## Development
+
+```bash
+# Install dependencies
+just sync
+
+# Run tests
+just test
+
+# Lint
+just lint
+
+# Type check
+just typecheck
+
+# All checks
+just all
+```
+
+## Requirements
+
+- Python 3.14+

@@ -1,3 +1,5 @@
+LICENSE
+README.md
 pyproject.toml
 src/join_pdfs/__init__.py
 src/join_pdfs/__main__.py
